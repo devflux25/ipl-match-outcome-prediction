@@ -46,6 +46,10 @@ The trained model achieved an accuracy only slightly higher than the baseline, i
 Pre-match features alone are **insufficient for reliable IPL match outcome prediction**.  
 This project emphasizes the importance of baseline evaluation and honest assessment when applying machine learning to high-variance real-world problems.
 
+## Code
+The complete implementation can be found in:
+- `ipl.py`
+
 ## Tools Used
 - Python
 - Pandas
@@ -57,4 +61,5 @@ This project emphasizes the importance of baseline evaluation and honest assessm
 - Incorporating historical team performance metrics
 - Player-level statistics
 - Time-aware validation strategies
+
 

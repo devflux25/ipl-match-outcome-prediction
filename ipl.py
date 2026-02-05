@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 
-path = r"C:\Users\Kairav\OneDrive\Desktop\ipl dataset\matches.csv"
+path = r""                     #paste the path of the dataset 
 df = pd.read_csv(path)
 
 
@@ -76,4 +76,5 @@ plt.ylabel('Accuracy')
 plt.title('Baseline vs Logistic Regression Accuracy')
 
 plt.savefig("accuracy_comparison.png", dpi=300, bbox_inches='tight')
+
 plt.close()

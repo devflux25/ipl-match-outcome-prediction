@@ -1,65 +1,175 @@
 # IPL Match Outcome Prediction
 
 ## Overview
-This project explores whether IPL match outcomes can be predicted using only **pre-match information** such as teams, venue, and toss details.  
-The objective is not to achieve high accuracy, but to understand the **limitations of machine learning models** when applied to noisy real-world sports data.
+This project explores whether IPL match outcomes can be predicted using **pre-match match information** and **historical engineered features**.
+
+The objective of this project was not simply to maximize accuracy, but to understand:
+
+- how much predictive power basic match data really has,
+- how feature engineering can improve a model,
+- and why honest evaluation matters in real-world machine learning problems.
+
+This project focuses on building a **realistic and explainable ML workflow** instead of chasing unrealistic results.
+
+---
+
+## Problem Statement
+The task is framed as a **binary classification problem**:
+
+- **1 → Team 1 wins the match**
+- **0 → Team 2 wins the match**
+
+Only information available **before the match starts** was used, in order to avoid future data leakage.
+
+---
 
 ## Dataset
 The dataset contains historical IPL match-level data including:
-- Team 1 and Team 2
-- Match venue
-- Toss winner and toss decision
-- Match winner
 
-Only **pre-match features** were used to avoid any form of data leakage.
+- Team 1
+- Team 2
+- Venue
+- Toss Winner
+- Toss Decision
+- Match Winner
+- Match Date
 
-## Problem Framing
-The task is framed as a **binary classification problem**:
-- **1** → Team 1 wins the match  
-- **0** → Team 2 wins the match  
+Rows with missing or undefined winners were removed during preprocessing.
 
-Matches with missing or undefined winners were removed during preprocessing.
+---
 
-## Approach
-- Categorical features were encoded using **one-hot encoding**
-- A **baseline accuracy** was computed using a majority-class strategy
-- **Logistic Regression** was used as a simple and interpretable baseline model
-- A **stratified train-test split** was applied to handle slight class imbalance
+## Features Used
+
+### Raw Match Features
+- Team 1
+- Team 2
+- Venue
+- Toss Winner
+- Toss Decision
+
+### Engineered Features
+The model was later improved by adding historical features calculated using **only past matches**:
+
+- **Team 1 Win Rate**
+- **Team 2 Win Rate**
+- **Team 1 Recent Form (Last 5 Matches)**
+- **Team 2 Recent Form (Last 5 Matches)**
+- **Team 1 Head-to-Head Win Rate**
+- **Team 2 Head-to-Head Win Rate**
+
+These features were built dynamically using dictionaries and chronological match history.
+
+---
+
+## Machine Learning Approach
+
+### Models Used
+- **Baseline Model** (majority-class prediction)
+- **Logistic Regression**
+- **Random Forest Classifier**
+
+### Workflow
+- Data cleaning and preprocessing
+- Team name standardization
+- Chronological sorting by date
+- Feature engineering using only past match information
+- One-hot encoding for categorical variables
+- Train-test split with stratification
+- Accuracy-based evaluation
+
+---
 
 ## Exploratory Insights
 
-### Class Distribution
-This plot shows the distribution of match outcomes between Team 1 and Team 2 wins.  
-The slight imbalance justifies the use of stratified sampling during evaluation.
+### 1. Class Distribution
+This graph shows the distribution of the target variable:
+
+- **1 = Team 1 wins**
+- **0 = Team 2 wins**
+
+This helps check whether the dataset is balanced or slightly imbalanced.
 
 ![Class Distribution](class_distribution.png)
 
-### Baseline vs Model Performance
-This comparison shows that Logistic Regression only marginally outperforms a naive baseline, highlighting the limited predictive power of pre-match features.
+---
 
-![Accuracy Comparison](accuracy_comparison.png)
+### 2. Baseline vs Initial Model Comparison
+This graph compares the **baseline model** with the initial machine learning model.
+
+It helps show how much predictive power exists when using only basic match information.
+
+![Model Accuracy Comparison](model_accuracy_comparison.png)
+
+---
+
+### 3. Final Model Accuracy Comparison
+This graph compares:
+
+- **Baseline Model**
+- **Logistic Regression**
+- **Random Forest Classifier**
+
+after adding feature engineering improvements such as win rate, recent form, and head-to-head win rate.
+
+![Final Accuracy Comparison](accuracy_comparison.png)
+
+---
 
 ## Results
-The trained model achieved an accuracy only slightly higher than the baseline, indicating that match outcomes are influenced by many factors not available before the match begins.
 
-## Key Takeaway
-Pre-match features alone are **insufficient for reliable IPL match outcome prediction**.  
-This project emphasizes the importance of baseline evaluation and honest assessment when applying machine learning to high-variance real-world problems.
+### Final Accuracy Comparison
+- **Baseline Accuracy:** `REPLACE_THIS`
+- **Logistic Regression Accuracy:** `REPLACE_THIS`
+- **Random Forest Accuracy:** `0.57`
 
-## Code
-The complete implementation can be found in:
-- `ipl.py`
+> Replace the values above with your actual baseline and logistic regression scores.
+
+---
+
+## Key Learnings
+This project helped me understand several important machine learning concepts:
+
+- Why **feature engineering matters more than simply changing models**
+- How to create **past-only historical features**
+- Why **future data leakage must be avoided**
+- How to use **dictionaries, loops, and match history** to build dynamic ML features
+- Why sports prediction is difficult due to uncertainty and hidden variables
+
+---
+
+## Honest Conclusion
+This project showed that IPL match outcome prediction is a challenging problem.
+
+Even after adding engineered historical features, model performance improved only moderately. This suggests that IPL outcomes are influenced by many factors not present in the dataset, such as:
+
+- player availability
+- injuries
+- current form
+- pitch conditions
+- team combinations
+- match-day randomness
+
+So the main value of this project is not “high accuracy,” but learning how to build a more realistic and honest machine learning pipeline.
+
+---
 
 ## Tools Used
 - Python
 - Pandas
 - NumPy
-- Scikit-learn
 - Matplotlib
+- Scikit-learn
 
-## Future Work
-- Incorporating historical team performance metrics
-- Player-level statistics
-- Time-aware validation strategies
+---
 
-
+## File Structure
+```bash
+ipl-match-outcome-prediction/
+│
+├── LICENSE
+├── README.md
+├── ipl.py
+├── matches.csv
+├── class_distribution.png
+├── model_accuracy_comparison.png
+├── accuracy_comparison.png

@@ -98,7 +98,7 @@ This graph compares the **baseline model** with the initial machine learning mod
 
 It helps show how much predictive power exists when using only basic match information.
 
-![Model Accuracy Comparison](model_accuracy_comparison.png)
+![Model Accuracy Comparison](accuracy_comparison.png)
 
 ---
 

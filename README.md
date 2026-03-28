@@ -111,7 +111,7 @@ This graph compares:
 
 after adding feature engineering improvements such as win rate, recent form, and head-to-head win rate.
 
-![Final Accuracy Comparison](accuracy_comparison.png)
+![Final Accuracy Comparison](Model_accuracy_comparison.png)
 
 ---
 

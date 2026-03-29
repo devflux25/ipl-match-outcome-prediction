@@ -118,8 +118,8 @@ after adding feature engineering improvements such as win rate, recent form, and
 ## Results
 
 ### Final Accuracy Comparison
-- **Baseline Accuracy:** `REPLACE_THIS`
-- **Logistic Regression Accuracy:** `REPLACE_THIS`
+- **Baseline Accuracy:** `0.55`
+- **Logistic Regression Accuracy:** `0.52`
 - **Random Forest Accuracy:** `0.57`
 
 > Replace the values above with your actual baseline and logistic regression scores.

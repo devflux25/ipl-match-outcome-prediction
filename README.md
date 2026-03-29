@@ -153,6 +153,27 @@ So the main value of this project is not “high accuracy,” but learning how t
 
 ---
 
+## 🏏 Example Match Prediction
+
+After training the model, I tested it on a sample future IPL match prediction.
+
+### Match Details
+- **Match:** RCB vs SRH
+- **Venue:** M Chinnaswamy Stadium
+- **Toss Winner:** RCB
+- **Toss Decision:** Field
+
+### Model Prediction
+- **Predicted Winner:** SRH
+
+This prediction was generated using the trained model and the engineered features:
+- overall team win rate
+- recent form
+- head-to-head win rate
+- toss and venue information
+
+This helped demonstrate how the model can be used beyond training and evaluation, as a simple real-match prediction demo.
+
 ## Tools Used
 - Python
 - Pandas

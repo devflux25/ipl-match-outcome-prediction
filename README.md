@@ -174,6 +174,25 @@ This prediction was generated using the trained model and the engineered feature
 
 This helped demonstrate how the model can be used beyond training and evaluation, as a simple real-match prediction demo.
 
+## 🧪 Real Match Validation
+
+The model was also tested on a real IPL match to check whether the prediction pipeline works on unseen match scenarios.
+
+### Match Tested
+- **Match:** Mumbai Indians vs Kolkata Knight Riders
+- **Date:** 29 March 2026
+- **Venue:** Wankhede Stadium
+- **Toss Winner:** Mumbai Indians
+- **Toss Decision:** Field
+
+### Model Output
+- **Predicted Winner:** Mumbai Indians
+- **Actual Winner:** Mumbai Indians
+
+This example showed that the model was able to generate a correct prediction for a real match using only pre-match and historical engineered features.
+
+> Note: A single correct prediction does not prove model reliability, but it demonstrates that the end-to-end prediction pipeline is functional and usable.
+
 ## Tools Used
 - Python
 - Pandas

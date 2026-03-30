@@ -189,6 +189,17 @@ The model was also tested on a real IPL match to check whether the prediction pi
 - **Predicted Winner:** Mumbai Indians
 - **Actual Winner:** Mumbai Indians
 
+- ### Match 2
+- **Match:** Rajasthan Royals vs Chennai Super Kings
+- **Date:** 30 March 2026
+- **Venue:** Sawai Mansingh Stadium, Jaipur
+- **Toss Winner:** Rajasthan Royals
+- **Toss Decision:** Field
+
+**Model Output**
+- **Predicted Winner:** Rajasthan Royals
+- **Actual Winner:** Rajasthan Royals
+
 This example showed that the model was able to generate a correct prediction for a real match using only pre-match and historical engineered features.
 
 > Note: A single correct prediction does not prove model reliability, but it demonstrates that the end-to-end prediction pipeline is functional and usable.

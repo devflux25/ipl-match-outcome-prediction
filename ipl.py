@@ -11,8 +11,7 @@ from sklearn.metrics import accuracy_score
 path = r""  #enter the path of the downloded file 
 df = pd.read_csv(path)
 
-#path1 = r"C:\Users\Kairav\OneDrive\Desktop\ipl dataset\teamwise_home_and_away.csv"
-#df1 = pd.read_csv(path1)
+
 
 
 df = df[['team1', 'team2', 'winner', 'venue', 'toss_winner', 'toss_decision','date']]
